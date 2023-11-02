@@ -6,7 +6,7 @@ class Katana: JMWeapon replaces Fist
 {
 	  Default 
 	  {
-	  Obituary "$OB_MPFIST";
+	  Obituary "%o was sliced and diced by %k's Katana.";
 	  Tag "Katana";
 //	  +WEAPON.WIMPY_WEAPON;
 	  +WEAPON.NOALERT;

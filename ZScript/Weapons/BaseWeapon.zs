@@ -125,7 +125,7 @@ class JMWeapon : Weapon
 		Weapon.BobRangeY 0.6;
 		Weapon.BobSpeed 1.5;
         +DONTGIB;
-        Inventory.PickupMessage "Why are you here? You're not supposed to see this.";
+        Inventory.PickupMessage "How did you pick this up? You're not supposed to see or use this.";
     }
 	
 	States

@@ -1,0 +1,59 @@
+Model EnhancedPlasmaSpark1      // Name of class in ZScript
+{
+   Path "Models"    // Path to model in PK3
+   Model 0 "spark.md3"    // Model index, model file
+   Skin 0 "hitspark.png"     // Model index, texture (can be in any format supported by GZDoom)
+   Scale 0.6 0.6 6.0 // Scale values
+   PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
+   FrameIndex SPKO S 0 0         // The sprite lump, sprite frame, model index, frame number
+}
+
+Model EnhancedPlasmaSpark2      // Name of class in ZScript
+{
+   Path "Models"    // Path to model in PK3
+   Model 0 "spark.md3"    // Model index, model file
+   Skin 0 "hitspark.png"     // Model index, texture (can be in any format supported by GZDoom)
+   Scale 0.6 0.6 6.0 // Scale values
+   PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
+   FrameIndex SPKO S 0 0         // The sprite lump, sprite frame, model index, frame number
+}
+
+Model EnhancedPlasmaSpark3      // Name of class in ZScript
+{
+   Path "Models"    // Path to model in PK3
+   Model 0 "spark.md3"    // Model index, model file
+   Skin 0 "hitspark.png"     // Model index, texture (can be in any format supported by GZDoom)
+   Scale 0.6 0.6 6.0 // Scale values
+   PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
+   FrameIndex SPKO S 0 0         // The sprite lump, sprite frame, model index, frame number
+}
+
+Model EnhancedHPlasmaSpark1      // Name of class in ZScript
+{
+   Path "Models"    // Path to model in PK3
+   Model 0 "spark.md3"    // Model index, model file
+   Skin 0 "hitspark.png"     // Model index, texture (can be in any format supported by GZDoom)
+   Scale 0.6 0.6 6.0 // Scale values
+   PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
+   FrameIndex SPKO S 0 0         // The sprite lump, sprite frame, model index, frame number
+}
+
+Model EnhancedHPlasmaSpark2      // Name of class in ZScript
+{
+   Path "Models"    // Path to model in PK3
+   Model 0 "spark.md3"    // Model index, model file
+   Skin 0 "hitspark.png"     // Model index, texture (can be in any format supported by GZDoom)
+   Scale 0.6 0.6 6.0 // Scale values
+   PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
+   FrameIndex SPKO S 0 0         // The sprite lump, sprite frame, model index, frame number
+}
+
+Model EnhancedHPlasmaSpark3      // Name of class in ZScript
+{
+   Path "Models"    // Path to model in PK3
+   Model 0 "spark.md3"    // Model index, model file
+   Skin 0 "hitspark.png"     // Model index, texture (can be in any format supported by GZDoom)
+   Scale 0.6 0.6 6.0 // Scale values
+   PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
+   FrameIndex SPKO S 0 0         // The sprite lump, sprite frame, model index, frame number
+}

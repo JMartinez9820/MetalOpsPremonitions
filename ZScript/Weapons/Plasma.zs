@@ -74,10 +74,10 @@ class JM_PlasmaRifle : JMWeapon Replaces PlasmaRifle
 		Goto Ready;
 		
 	Ready:
-		1RL1 A 0; //Initialize the sprite name into memory
-		1RL2 A 0; //Initialize the sprite name into memory
+		1RL1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 0; //Initialize the sprite name into memory
+		1RL2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 0; //Initialize the sprite name into memory
 		1RL3 A 0; //Initialize the sprite name into memory
-		1RGS A 0;
+		1RGS ABCD 0;
 	SelectAnimation:
 		TNT1 A 0 A_StartSound("weapons/plasma/equip",1);
 		PRGS ABCD 1
@@ -226,11 +226,11 @@ class JM_PlasmaRifle : JMWeapon Replaces PlasmaRifle
 				JM_CheckForQuadDamage();
 				return ResolveState("HeatBlast");
 			}
-			else
+/*			else
 			{
 				JM_CheckForQuadDamage();
 				return ResolveState("CellDischarge");
-			}
+			}*/
 			return ResolveState(null);
 		}
 		TNT1 A 0;
@@ -592,7 +592,7 @@ class JM_PlasmaBall : FastProjectile replaces PlasmaBall
 		Height 8;
 		Speed 70;
  //		Damage 30;
-		DamageFunction 20;
+		DamageFunction 25;
 		Scale 0.4;
 		Projectile;
 		+RANDOMIZE
@@ -621,6 +621,9 @@ class JM_PlasmaBall : FastProjectile replaces PlasmaBall
 		TNT1 AA 0 A_SpawnItemEx("BlueLightningTiny", Random(-4, 4), Random(-4, 4), Random(-4, 4), 0, 0, 0, 0, 0, 128);
 		TNT1 A 0 A_SpawnItemEx("BlueLightningSmall", Random(-4, 4), Random(-4, 4), Random(-4, 4), 0, 0, 0, 0, 0, 192);
 		TNT1 A 0 A_SpawnItem("PlasmaExplosion");
+		TNT1 AAAAAAAAA 0 A_SpawnProjectile("EnhancedPlasmaSpark1", 2, 0, frandom(0,1)*frandom (-180, 180),  flags:CMF_AIMDIRECTION|CMF_ABSOLUTEPITCH|CMF_OFFSETPITCH, pitch: pitch - frandom(0,1)*frandom (30, 360));
+		TNT1 AAAAA 0 A_SpawnProjectile("EnhancedPlasmaSpark2", 2, 0, frandom(0,1)*frandom (-180, 180), flags:CMF_AIMDIRECTION|CMF_ABSOLUTEPITCH|CMF_OFFSETPITCH, pitch: pitch - frandom(0,1)*frandom (30, 360));
+		TNT1 AA 0 A_SpawnProjectile("EnhancedPlasmaSpark3", 2, 0, frandom(0,1)*frandom (-180, 180), flags:CMF_AIMDIRECTION|CMF_ABSOLUTEPITCH|CMF_OFFSETPITCH, pitch: pitch - frandom(0,1)*frandom (30, 360));
 		Stop;
 	}
 }
@@ -631,7 +634,7 @@ class JM_HeatedPlasmaBall : JM_PlasmaBall
 	{
 		Obituary "%o was scorched by %k's Heated Plasma Repeater.";
 		DeathSound "weapons/plasma/htballexp";
-		DamageFunction(25);
+		DamageFunction(30);
 	}
 	States
 	{
@@ -647,6 +650,9 @@ class JM_HeatedPlasmaBall : JM_PlasmaBall
 		TNT1 AAA 0 A_SpawnItemEx("RedLightningMini", Random(-4, 4), Random(-4, 4), Random(-4, 4), 0, 0, 0, 0, 0, 64);
 		TNT1 AA 0 A_SpawnItemEx("RedLightningTiny", Random(-4, 4), Random(-4, 4), Random(-4, 4), 0, 0, 0, 0, 0, 128);
 		TNT1 A 0 A_SpawnItemEx("RedLightningSmall", Random(-4, 4), Random(-4, 4), Random(-4, 4), 0, 0, 0, 0, 0, 192);
+		TNT1 AAAAAAAAA 0 A_SpawnProjectile("EnhancedHPlasmaSpark1", 2, 0, frandom(0,1)*frandom (-180, 180),  flags:CMF_AIMDIRECTION|CMF_ABSOLUTEPITCH|CMF_OFFSETPITCH, pitch: pitch - frandom(0,1)*frandom (30, 360));
+		TNT1 AAAAA 0 A_SpawnProjectile("EnhancedHPlasmaSpark2", 2, 0, frandom(0,1)*frandom (-180, 180), flags:CMF_AIMDIRECTION|CMF_ABSOLUTEPITCH|CMF_OFFSETPITCH, pitch: pitch - frandom(0,1)*frandom (30, 360));
+		TNT1 AA 0 A_SpawnProjectile("EnhancedHPlasmaSpark3", 2, 0, frandom(0,1)*frandom (-180, 180), flags:CMF_AIMDIRECTION|CMF_ABSOLUTEPITCH|CMF_OFFSETPITCH, pitch: pitch - frandom(0,1)*frandom (30, 360));
 		TNT1 A 0 A_SpawnItem("HeatedPlasmaExplosion");
 		Stop;
 	}

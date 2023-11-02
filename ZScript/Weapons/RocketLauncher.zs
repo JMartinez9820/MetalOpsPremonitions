@@ -407,7 +407,7 @@ Class MO_Rocket : Rocket// replaces rocket
         SeeSound "NULLSND";
 	    DeathSound "rocket/explosion";
 		Scale 0.5;
-		Damage 30;
+		DamageFunction (random(50, 70));
 		DamageType "Explosive";
 		Decal "Scorch";
     }

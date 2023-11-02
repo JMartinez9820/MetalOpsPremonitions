@@ -18,6 +18,15 @@ OptionMenu "Modsettings"
 	StaticText ""
 	Option "Disable Gun Recoil", "mo_nogunrecoil", "yesno"
 	StaticText "Disables recoil on shootable weapons."
+	StaticText ""
+	Option "$MO_NVISOPTN", "mo_nvstyle", "MO_NightVisionColors"
+	StaticText ""
+}
+
+OptionValue "MO_NightVisionColors"
+{
+	0, "$MO_NVISGREN"
+	1, "$MO_NVISWHT"
 }
 
 OptionValue "NCH_TallyDrawModes"

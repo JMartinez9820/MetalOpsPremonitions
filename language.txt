@@ -79,4 +79,8 @@ GOTUNMAKER = "You got the Unmaker! Unleash the power of Hell itself on your foes
 TAG_UNMAKER = "The Unmaker";
 OB_UNMAKER = "%o got decimated by %k's Unmaker.";
 GOTUNMAKER2 = "What The Fuck is this?! (Slot 7)";
+MO_NVISOPTN = "Night Vision Color";
+MO_NVISGREN = "Green Phosphor";
+MO_NVISGREN2 = "Digital Green Phosphor";
+MO_NVISWHT = "White Phosphor";
 

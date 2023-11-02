@@ -41,3 +41,5 @@ user int nchud_hicolor = -1;
 server bool mo_ssgrandomizer = false;
 user bool mo_bulletsparksound = true;
 server bool mo_nogunrecoil = false;
+user int mo_nvstyle = 1;
+user bool mo_nvscanlines = true;

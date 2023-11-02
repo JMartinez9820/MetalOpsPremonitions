@@ -17,6 +17,7 @@ class MO_Flamethrower : JMWeapon// replaces Chainsaw
 		Tag "Flamethrower";
         +FLOORCLIP;
 		Scale 0.42;
+		Obituary "%o was burnt to a crisp by %k's Flamethrower.";
     }
     States
     {

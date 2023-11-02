@@ -13,7 +13,7 @@ mixin class MO_PowerUpWarning
 		{
 			Owner.A_StartSound(expiresnd, 40, CHANF_OVERLAP, 1.0, ATTN_NONE);
 			Owner.A_Print(str, 1);
-			Owner.A_SetBlend(blend, .3, 8);
+			Owner.A_SetBlend(blend, .6, 10);
 		}
 	}
 }
@@ -79,12 +79,20 @@ Class MO_NightVision : PowerLightAmp
 {
 	mixin PowerUpExpiringBase;
 	mixin MO_PowerUpWarning;
-	
 	override void DoEffect ()
     {
 		if(!owner) return;
         Super.DoEffect();
-		
+		SetNVGStyle();
+		Shader.SetEnabled(Owner.Player,"NiteVis",true);
+		Shader.SetUniform1f(Owner.Player, "NiteVis","exposure",2);
+		Shader.SetUniform1i(Owner.Player, "NiteVis","u_resfactor",resfactor);
+		Shader.SetUniform1i(Owner.Player, "NiteVis","u_hscan",resfactor);
+		Shader.SetUniform1f(Owner.Player, "NiteVis","u_scanstrength",scanstrength);
+		Shader.SetUniform1i(Owner.Player,"NiteVis","u_posterize",posterize);
+		Shader.SetUniform3f(Owner.Player,"NiteVis","u_posfilter",posfilter);
+		Shader.SetUniform1f(Owner.Player,"NiteVis","u_whiteclip",whiteclip);
+		Shader.SetUniform1f(Owner.Player,"NiteVis","u_desat",desat);
 		ExpireSoundTics = playTimer;
 		PowerWarning("Night Vision Goggles'", "The", "misc/goggleswarn", "00 aa 00", "d", "battery is running low");
 	}
@@ -95,12 +103,35 @@ Class MO_NightVision : PowerLightAmp
 		if(!owner) return;
 		Owner.A_StartSound("misc/gogglesend", 41);
 		Owner.A_StopSound(40);
+		Shader.SetEnabled(Owner.Player,"nitevis",false);
 	}
 		
 	Default
 	{
 		Inventory.AltHudIcon "PVISA0";
 		+INVENTORY.NOSCREENBLINK;
+	}
+}
+
+//Modified from Hideous Destructor
+extend class MO_NightVision
+{
+	transient CVar NVGStyle;
+	int style;
+	int resfactor,scanfactor,hscan,vscan,posterize;
+	double scanstrength,whiteclip,desat;
+	vector3 posfilter,negfilter;
+
+	void SetNVGStyle() {
+		if (!NVGStyle) NVGStyle = CVar.GetCVar("mo_nvstyle",owner.player);
+		int style = NVGStyle.GetInt();
+		switch (style) {
+			default:
+			case 0: // Green Phosphor
+				resfactor=1;hscan=1;vscan=0;scanfactor=8;scanstrength=0.1;posterize=24;posfilter=(0,1,0);whiteclip=0.25;desat=0.0;break;
+			case 1: // White Phosphor
+				resfactor=2;hscan=1;vscan=0;scanfactor=2;scanstrength=0.1;posterize=256;posfilter=(0.0,1.0,0.75);whiteclip=0.8;desat=0.0;break;
+		}
 	}
 }
 

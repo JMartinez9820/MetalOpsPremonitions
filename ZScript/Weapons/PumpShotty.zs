@@ -55,7 +55,7 @@ class PumpShotgun : JMWeapon
             PSTG A 0 JM_CheckMag("PumpShotgunAmmo", "Reload");
             PSGF A 1 
             {
-                A_FireBullets (random(3, 6), frandom(2,6.7), 9, 11, "ShotgunShellPuff", FBF_NORANDOM,0,"MO_BulletTracer",0);
+                A_FireBullets (random(4, 8), frandom(4,9), 20, 6, "ShotgunShellPuff", FBF_NORANDOM,0,"MO_BulletTracer",0);
                 A_StartSound ("weapons/pumpshot/fire", CHAN_WEAPON);
                 A_TakeInventory("PumpShotgunAmmo",1);
 				A_SpawnItemEx("ShotgunSmoke",15,0,34,2,0,0);
@@ -86,7 +86,7 @@ class PumpShotgun : JMWeapon
             PSGM H 1
 			{
 				SetInventory("Levering",0);
-				A_SpawnItemEx("ShotgunCasing",30, -11, 18, random(0,4), random(4,6), random(5,9));
+				A_SpawnItemEx("ShotgunCasing20ga",30, -11, 18, random(0,4), random(4,6), random(5,9));
 			}
 			TNT1 A 0 JM_WeaponReady(WRF_NOFIRE); //Quick switch	
 			PSTF A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);
@@ -106,8 +106,7 @@ class PumpShotgun : JMWeapon
 			TNT1 A 0 A_StartSound("weapons/pumpshot/altfire",CHAN_7);
 			PSGF A 1 
             {
-                A_FireBullets (random(3, 6), frandom(2,6.7), 9, 11, "ShotgunShellPuff", FBF_NORANDOM,0,"MO_BulletTracer",0);
-				A_FireBullets (random(4, 8), frandom(4,8.7), 9, 11, "ShotgunShellPuff", FBF_NORANDOM,0,"MO_BulletTracer",0);
+                 A_FireBullets (random(5, 8), frandom(5,14), 40, 6, "ShotgunShellPuff", FBF_NORANDOM,0,"MO_BulletTracer",0);
                 A_TakeInventory("PumpShotgunAmmo",2);
 				A_SpawnItemEx("ShotgunSmoke",15,0,34,2,0,0);
 				JM_CheckForQuadDamage();
@@ -154,8 +153,8 @@ class PumpShotgun : JMWeapon
             PSGM H 1
 			{
 				SetInventory("Levering",0);
-				A_SpawnItemEx("ShotgunCasing",30, -11, 18, random(0,4), random(4,6), random(5,9));
-				A_SpawnItemEx("ShotgunCasing",30, -11, 18, random(0,4), random(4,6), random(5,9));
+				A_SpawnItemEx("ShotgunCasing20ga",30, -11, 18, random(0,4), random(4,6), random(5,9));
+				A_SpawnItemEx("ShotgunCasing20ga",30, -11, 18, random(0,4), random(4,6), random(5,9));
 			}
 			TNT1 A 0 JM_WeaponReady(WRF_NOFIRE); //Quick switch	
 			PSTF A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);

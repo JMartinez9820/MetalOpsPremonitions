@@ -159,6 +159,7 @@ using assets from Halo 2, and it is not endorsed by or affiliated with Microsoft
 
 Nintendo - ice break sound effect from Legend of Zelda Ocarina of Time. Used under Fair Use.
 
+Ice break sounds: NetherRealm Studios
 zrriontheinsect - Used his amazing tutorial on muzzle flashes: https://forum.zdoom.org/viewtopic.php?t=38940
 Certain muzzle flash effects from VideoCoPilot's Action Essentials 2, thanks matteus from Youtube for preserving this!
 Some muzzle flashes by Metalman, Adobe
@@ -166,12 +167,13 @@ Some muzzle flashes by Metalman, Adobe
 Tharn666 - Grenade cook warning icon
 Grenade cooking and indicator inspired by Call of Duty 3 by Activision and Treyarch
 Smoke trail for grenade inspired by Black Mesa by Crowbar Collective
-Megasphere sound from Doom 2016 by id Software, Soulsphere sound from Quake Champions by
+Megasphere sound from Doom 2016 by id Software, Soulsphere sound from Doom3 by
 id Software
 Power up wear off and Invulnerability sounds from Quake by ID Software,  HQ sounds by SeanTheBermanator
-Night Vision goggles off sound from LiTDoom, mixed in the Night vision sound from Splinter Cell.
+Night Vision goggles off sound from Call of Duty Modern Warfare 2007
 Night Vision goggles warning sound by sweet_trip from freesound.com
-LiTDoom by GreyWolf, Splinter Cell by Ubisoft
+Invulnerability loop sounds from Doom 2016, layered sounds and invul end by People Can Fly, 
+DreamCatcher Interactive (THQ Nordic)
 scalliano - GLDefs code for spheres, Haste sphere
 
 Yoo-toob-FX - Rad suit off sound

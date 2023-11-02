@@ -11,7 +11,7 @@ class JM_SSG : JMWeapon replaces SuperShotgun
         Inventory.PickupMessage "You got the Double Barrel Flak Shotgun!";
         Obituary "$OB_MPSSHOTGUN";
         Tag "Double Barrel Flak Shotgun";
-		Inventory.PickupSound "weapons/ssg/close";
+		Inventory.PickupSound "weap/ssg/pickup";
     }
     States
     {
