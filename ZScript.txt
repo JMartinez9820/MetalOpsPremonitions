@@ -40,6 +40,7 @@ version "4.5.0"
 #include "ZScript/Effects/Casings.zc"
 #include "ZScript/Effects/Thunder.zc"
 #include "ZScript/Effects/Shockwaves.zs"
+#include "ZScript/Effects/Particles.zs"
 
 #include "ZScript/StepEventHandler.zc"
 

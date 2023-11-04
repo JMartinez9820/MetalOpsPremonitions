@@ -15,7 +15,7 @@ class MiniNukeCooldown : Powerup
 			Owner.A_Print("Mini nuke ready!");
         }
     }
-	Default{Powerup.Duration 525;}
+	Default{Powerup.Duration 700;}
 }
 
 class MiniNukeCoolerGiver : PowerupGiver
@@ -407,7 +407,7 @@ Class MO_Rocket : Rocket// replaces rocket
         SeeSound "NULLSND";
 	    DeathSound "rocket/explosion";
 		Scale 0.5;
-		Damage 30;
+		DamageFunction (random(50, 70));
 		DamageType "Explosive";
 		Decal "Scorch";
     }

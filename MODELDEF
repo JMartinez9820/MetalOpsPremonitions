@@ -1,4 +1,4 @@
-Model MO_BulletTracer // Name of actor in ZScript
+Model MO_BulletTracer // Name of class in ZScript
 { 
    Path "Models" // Path to model in PK3
    SKIN 0 "tracer1.tga" // Model index, model file
@@ -7,4 +7,34 @@ Model MO_BulletTracer // Name of actor in ZScript
    PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
    
    FrameIndex TRAC A 0 0 // The sprite lump, sprite frame, model index, frame number
+}
+
+Model EnhancedHitSpark1      // Name of class in ZScript
+{
+   Path "Models"    // Path to model in PK3
+   Model 0 "spark.md3"    // Model index, model file
+   Skin 0 "hitspark.png"     // Model index, texture (can be in any format supported by GZDoom)
+   Scale 0.6 0.6 6.0 // Scale values
+   PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
+   FrameIndex SPKO S 0 0         // The sprite lump, sprite frame, model index, frame number
+}
+
+Model EnhancedHitSpark2     // Name of class in ZScript
+{
+   Path "Models"    // Path to model in PK3
+   Model 0 "spark.md3"    // Model index, model file
+   Skin 0 "hitspark.png"     // Model index, texture (can be in any format supported by GZDoom)
+   Scale 0.5 0.5 6.0 // Scale values
+   PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
+   FrameIndex SPKO S 0 0         // The sprite lump, sprite frame, model index, frame number
+}
+
+Model EnhancedHitSpark3     // Name of class in ZScript
+{
+   Path "Models"    // Path to model in PK3
+   Model 0 "spark.md3"    // Model index, model file
+   Skin 0 "hitspark.png"     // Model index, texture (can be in any format supported by GZDoom)
+   Scale 0.4 0.4 6.0 // Scale values
+   PITCHFROMMOMENTUM // A flag that will fix the model pitch for projectiles
+   FrameIndex SPKO S 0 0         // The sprite lump, sprite frame, model index, frame number
 }

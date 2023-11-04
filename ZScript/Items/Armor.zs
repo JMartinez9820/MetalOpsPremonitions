@@ -9,10 +9,10 @@ class MO_ArmorBonus : BasicArmorBonus// replaces ArmorBonus
 	  Inventory.Icon "ARM1A0";
 	  Armor.SavePercent 33.335;
 	  Armor.SaveAmount 2;
-	  Armor.MaxSaveAmount 1000; // 1000 so that it doesn't break item count
+	  Armor.MaxSaveAmount 300; // 300 so that it doesn't break item count
 	  +COUNTITEM;
 	  inventory.pickupsound "misc/armorbonus";
-	  -INVENTORY.ALWAYSPICKUP;
+	  +INVENTORY.ALWAYSPICKUP;
 	}
 	  States
 	  {

@@ -3,6 +3,16 @@ class SergeantClassToken : MO_ZSToken{}
 
 class JMPlayerPawn : DoomPlayer
 {
+	override Void Tick()
+	{
+		Super.Tick();
+		//Destroy the night vision shader if a new level is started or if player dies.
+		If(!FindInventory("MO_NightVision"))
+		{
+			Shader.SetEnabled(Player,"NiteVis",false);
+		}
+	}
+
     Default
     {
         Player.StartItem "EnforcerPistol";
@@ -34,6 +44,16 @@ class JMPlayerPawn : DoomPlayer
 
 class JMPlayerDeagleStart : DoomPlayer
 {
+	override Void Tick()
+	{
+		Super.Tick();
+		//Destroy the night vision shader if a new level is started or if player dies.
+		If(!FindInventory("MO_NightVision"))
+		{
+			Shader.SetEnabled(Player,"NiteVis",false);
+		}
+	}
+
 	Default
     {
 		Player.StartItem "SergeantClassToken";

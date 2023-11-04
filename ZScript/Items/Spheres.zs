@@ -1,5 +1,4 @@
 
-
 Class MO_Soulsphere : CustomInventory replaces SoulSphere
 {
 	Default
@@ -281,3 +280,5 @@ Class MO_PowerQuadDMG : PowerDamage
 		DamageFactor "normal",4;
 	}
 }
+
+//Class MO_BloodrushSphere : CustomInventory

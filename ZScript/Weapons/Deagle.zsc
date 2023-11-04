@@ -37,53 +37,17 @@ class MO_Deagle : JMWeapon// replaces Pistol
 	Fire:
 		PSTG A 0 JM_CheckMag("MODeagleAmmo", "Reload");
 		DGLF A 1 {
-			A_FireBullets (5.6, 0, 1, 60, "UpdatedBulletPuff", FBF_NORANDOM, 0,"MO_BulletTracer",0);
+			A_FireBullets (5.6, 0, 1, 45, "UpdatedBulletPuff", FBF_NORANDOM, 0,"MO_BulletTracer",0);
 			A_StartSound("weapons/deag/fire", CHAN_WEAPON);
 			JM_UseAmmo("MODeagleAmmo",1);
 			A_SpawnItemEx("BigGunSmoke",18,0,34,2,0,0);
 			JM_CheckForQuadDamage();
 			}
 		PSTG A 0 A_SpawnItemEx("PistolCasing",30, 3, 33, random(-2,2), random(4,6), random(4,7), 0);
-		DGLF B 1
-		{
-			if(!GetCvar("mo_nogunrecoil"))
-			{
-			A_SetPitch(pitch-1.6,SPF_Interpolate);
-			A_SetAngle(angle+.19,SPF_INTERPOLATE);
-			}
-		}
-		DGLF C 1
-		{
-			if(!GetCvar("mo_nogunrecoil"))
-			{
-			A_SetPitch(pitch-1.6,SPF_Interpolate);
-			A_SetAngle(angle+.19,SPF_INTERPOLATE);
-			}
-		}
-		DGLF D 1
-		{
-			if(!GetCvar("mo_nogunrecoil"))
-			{
-			A_SetPitch(pitch-1.6,SPF_Interpolate);
-			A_SetAngle(angle+.19,SPF_INTERPOLATE);
-			}
-		}
-		DGLF D 1
-		{
-			if(!GetCvar("mo_nogunrecoil"))
-			{
-			A_SetPitch(pitch-1.6,SPF_Interpolate);
-			A_SetAngle(angle+.19,SPF_INTERPOLATE);
-			}
-		}
-		DGLF E 2
-		{
-			if(!GetCvar("mo_nogunrecoil"))
-			{
-			A_SetPitch(pitch-1.6,SPF_Interpolate);
-			A_SetAngle(angle+.19,SPF_INTERPOLATE);
-			}
-		}
+		DGLF B 1 JM_GunRecoil(-1.6, .19);
+		DGLF C 1 JM_GunRecoil(-1.6, .19);
+		DGLF DD 1 JM_GunRecoil(-1.6, .19);
+		DGLF E 2 JM_GunRecoil(-1.6, .19);
 		DGLF FFFGG 1;
  		DGLF HHIIJKLM  1 {
 				If(JustPressed(BT_ATTACK))

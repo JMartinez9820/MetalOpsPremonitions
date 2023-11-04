@@ -63,10 +63,12 @@ katanahit3 kathit3
 weapons/katana/miss KATCLSH
 
 //Pump Action Shotgun
-$random weapons/pumpshot/fire {PumpFire1 PumpFire2 PumpFire3}
+$random weapons/pumpshot/fire {PumpFire1 PumpFire2 PumpFire3 PumpFire4 PumpFire5}
 PumpFire1 PSGFIR1
 PumpFire2 PSGFIR2
 PumpFire3 PSGFIR3
+PumpFire4 PSGFIR4
+PumpFire5 PSGFIR5
 
 weapons/pumpshot/altfire PSGFIRAL
 
@@ -86,6 +88,7 @@ weapons/ssg/opengun SSGOPEN
 weapons/ssg/singleinsert "Sounds/Weapons/DoubleBarrel/SSG_SingleInsert.ogg"
 weapons/ssg/fullinsert "sounds/Weapons/DoubleBarrel/SSG_FullInsert.ogg"
 weapons/ssg/closegun SSGCLOS
+weap/ssg/pickup SSGPICK
 
 $volume weapons/ssg/opengas 0.65
 $volume weapons/ssg/singleinsert 0.75

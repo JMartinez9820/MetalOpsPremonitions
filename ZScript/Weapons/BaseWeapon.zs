@@ -115,8 +115,17 @@ class JMWeapon : Weapon
 	{
 		A_TakeInventory(ammotype, count, TIF_NOTAKEINFINITE);
 	}
-//	action bool JM_Recoil(float 
 
+	action void JM_GunRecoil(float gunPitch, float gunAngle)
+	{
+		CVar checkRecoil = CVar.FindCVar("mo_nogunrecoil");
+		bool noRecoil = checkRecoil.GetBool();
+		if(!noRecoil)
+		{
+			A_SetPitch(pitch+gunPitch, SPF_INTERPOLATE);
+			A_SetAngle(angle+gunAngle, SPF_INTERPOLATE);
+		}
+	}
 	
     Default
     {
@@ -125,7 +134,7 @@ class JMWeapon : Weapon
 		Weapon.BobRangeY 0.6;
 		Weapon.BobSpeed 1.5;
         +DONTGIB;
-        Inventory.PickupMessage "Why are you here? You're not supposed to see this.";
+        Inventory.PickupMessage "How did you pick this up? You're not supposed to see or use this.";
     }
 	
 	States

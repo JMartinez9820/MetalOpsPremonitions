@@ -323,4 +323,9 @@ Sprite "GRE1G0", 248, 180
 	Patch "TOSS3", 17, 61
 }
 
+Graphic "XHAIRB5", 1, 1
+{
+	Patch "NULLA0", 0, 0
+}
+
 // End of texture definitions
