@@ -1,5 +1,7 @@
 Class PistolBurstCounter : Inventory {Default{Inventory.MaxAmount 3;}}
 
+Class PistolSilencer : MO_ZSToken{}
+
 class EnforcerPistol : JMWeapon replaces Pistol
 {
  	Default
@@ -16,6 +18,7 @@ class EnforcerPistol : JMWeapon replaces Pistol
 		Inventory.PickupSound "weapons/pistol/pickup";
 		Inventory.ForbiddenTo "JMPlayerDeagleStart";
 		Inventory.RestrictedTo "JMPlayerPawn";
+		+WEAPON.NOALERT;
 	}
 	States
 	{
@@ -23,12 +26,15 @@ class EnforcerPistol : JMWeapon replaces Pistol
 		TNT1 AAAAAAAAAAAAAAAAAA 0 A_Raise();
 		Goto Ready;
 	Ready:
+		PSLF ABCDE 0;
 	SelectAnimation:
 		TNT1 A 0 A_StartSound("weapons/pistol/draw",1);
 		PSTD ABCD 1;
 	ReadyToFire:
 		PSTG A 0 A_SetInventory("PistolBurstCounter",0);
-		PSTG A 1 JM_WeaponReady(WRF_ALLOWRELOAD);
+		PSTL A 0 A_JumpIfInventory("PistolSilencer",1,2);
+		PSTG A 0;
+		"####" A 1 JM_WeaponReady(WRF_ALLOWRELOAD);
 		Loop;
 	Deselect:
 		PSTD DCBA 1;
@@ -38,99 +44,134 @@ class EnforcerPistol : JMWeapon replaces Pistol
 		TNT1 A 0;
 		Goto ClearAudioAndResetOverlays;
 	Fire:
-		PSTG A 0 JM_CheckMag("PistolMagAmmo", "Reload");
-		PSTF A 2 {
+		PSTG A 0 JM_CheckMag("PistolMagAmmo", "Reload");	
+		PSTF A 0
+		{
+			if(CountInv("PistolSilencer") == 1)
+		    {JM_SetWeaponSprite("PSLF");}
+		}
+		#### A 2 {
 			A_FireBullets (5.6, 0, 1, 14, "UpdatedBulletPuff", FBF_NORANDOM,0,"MO_BulletTracer", 0);
-			A_StartSound("weapons/pistol/fire", CHAN_WEAPON);
+				if(CountInv("PistolSilencer") == 1)
+				{
+					A_StartSound("weapons/pistol/silfire", CHAN_WEAPON);
+					A_Overlay(-3, "SilencerSmoke", True);
+				}
+				else
+				{
+					A_StartSound("weapons/pistol/fire", CHAN_WEAPON);
+					A_AlertMonsters();
+				}
 			A_TakeInventory("PistolMagAmmo",1,TIF_NOTAKEINFINITE);
 			A_SpawnItemEx("GunSmoke",18,0,32,2,0,0);
 			JM_CheckForQuadDamage();
 			}
-		PSTG A 0 A_SpawnItemEx("PistolCasing",30, -2, 33, random(-2,2), random(-6,-4), random(4,7), 0);
-		PSTG A 0 JM_GunRecoil(-0.6, .09);
-		PSTF B 1;
-		PSTG A 0 JM_GunRecoil(-0.6, .09);
-		PSTF C 1;
-		PSTG A 0 JM_GunRecoil(-0.6, .09);
-		PSTF D 1;
-		PSTF E 1 A_JumpIf(JustPressed(BT_ATTACK), "Fire");
- 		PSTG AAAAAAA 1 {
+		#### A 0 A_SpawnItemEx("PistolCasing",30, -2, 33, random(-2,2), random(-6,-4), random(4,7), 0);
+		#### B 1 JM_GunRecoil(-0.6, .09);
+		#### C 1 JM_GunRecoil(-0.6, .09);
+		#### D 1 JM_GunRecoil(-0.6, .09);
+		#### E 1 A_JumpIf(JustPressed(BT_ATTACK), "Fire");
+		PSTL A 0 A_JumpIfInventory("PistolSilencer",1,2);
+		PSTG A 0;
+ 		"####" AAAAAAA 1 {
 				If(JustPressed(BT_ATTACK))
 				{RETURN RESOLVESTATE("Fire");}
 				return JM_WeaponReady(WRF_NOFIRE|WRF_ALLOWRELOAD);
 			}
-		PISG A 0 A_JumpIf(PressingWhichInput(BT_ATTACK), "Fire");// A_ReFire;
 		PSTG A 0 JM_CheckMag("PistolMagAmmo", "Reload");
 		Goto ReadyToFire;
 	AltFire:
 		PSTG A 0 JM_CheckMag("PistolMagAmmo", "Reload");
 		PSTF A 0 A_JumpIfInventory("PistolBurstCounter", 3, "BurstFinished");
-		PSTF A 1 {
+		PSTF A 0
+		{
+			if(CountInv("PistolSilencer") == 1)
+		    {JM_SetWeaponSprite("PSLF");}
+		}
+		#### A 1 {
 			A_FireBullets (5.6, 0, 1, 14, "UpdatedBulletPuff", FBF_NORANDOM,0,"MO_BulletTracer", 0);
-			A_StartSound("weapons/pistol/fire", CHAN_WEAPON);
+			if(CountInv("PistolSilencer") == 1)
+			{
+				A_StartSound("weapons/pistol/silfire", CHAN_WEAPON);
+				A_Overlay(-3, "SilencerSmoke", True);
+			}
+			else
+			{
+				A_StartSound("weapons/pistol/fire", CHAN_WEAPON);
+				A_AlertMonsters();
+			}
 			A_TakeInventory("PistolMagAmmo",1,TIF_NOTAKEINFINITE);
 			A_SpawnItemEx("GunSmoke",18,0,32,2,0,0);
 			JM_CheckForQuadDamage();
 			A_GiveInventory("PistolBurstCounter",1);
 			}
-		PSTG A 0 A_SpawnItemEx("PistolCasing",30, -2, 33, random(-2,2), random(-6,-4), random(4,7), 0);
-		PSTG A 0 JM_GunRecoil(-0.6, .09);
-		PSTF B 1;
-		PSTG A 0 JM_GunRecoil(-0.6, .09);
-		PSTG A 0 A_JumpIf(PressingAltFire(), "AltFire");
-		Goto BurstFinished;
+		#### A 0 A_SpawnItemEx("PistolCasing",30, -2, 33, random(-2,2), random(-6,-4), random(4,7), 0);
+		#### A 0 JM_GunRecoil(-0.6, .09);
+		#### B 1;
+		#### A 0 JM_GunRecoil(-0.6, .09);
+		Goto AltFire;
 	
 	BurstFinished:
-		PSTG A 1 
+		#### C 1 JM_GunRecoil(-0.6, .09);
+		#### D 1 JM_GunRecoil(-0.6, .09);
+		#### E 1;
+	BurstFinishedLoop:
+		PSTL A 0 A_JumpIfInventory("PistolSilencer",1,2);
+		PSTG A 0;
+		"####" A 1 
 		{
 			A_SetInventory("PistolBurstCounter",0);
 			JM_WeaponReady(WRF_NOFIRE);
 		}
-		PSTG A 0 A_ReFire("BurstFinished");
+		PSTG A 0 A_ReFire("BurstFinishedLoop");
 		Goto ReadyToFire;
-		
+	
+	SilencerSmoke:
+		TNT1 A 1;
+		PSMC BC 1;
+		stop;
+
 	Reload:
 		PSTG A 0 A_JumpIfInventory("PistolMagAmmo",12,"ReadyToFire");
 		PSTG A 0 A_JumpIfInventory("LowCalClip",1,1);
 		Goto ReadyToFire;
-		PSR1 ABC 1 JM_WeaponReady(WRF_NOFIRE);
-		PSTF A 0 A_JumpIfInventory("MO_PowerSpeed",1,1);
-		PSR1 DEF 1 JM_WeaponReady(WRF_NOFIRE);
-		PSTG A 0 A_StartSound("weapons/pistol/magout",CHAN_AUTO);
-		PSTF A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);
-		PSR1 GHIJ 1 JM_WeaponReady(WRF_NOFIRE);
-		PSR1 J 7 
+		PSL1 A 0 A_JumpIfInventory("PistolSilencer",1,2);
+		PSR1 A 0;
+		#### ABC 1 JM_WeaponReady(WRF_NOFIRE);
+		#### A 0 A_JumpIfInventory("MO_PowerSpeed",1,1);
+		#### DEF 1 JM_WeaponReady(WRF_NOFIRE);
+		#### A 0 A_StartSound("weapons/pistol/magout",CHAN_AUTO);
+		#### A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);
+		#### GHIJ 1 JM_WeaponReady(WRF_NOFIRE);
+		#### J 7 
 		{
 			JM_WeaponReady(WRF_NOFIRE);
 			if(CountInv("MO_PowerSpeed") == 1) {A_SetTics(4);}
 		}
-		PSTF A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);
-		PSR1 KKLLM 1 JM_WeaponReady(WRF_NOFIRE);
-		PSTG A 0 A_StartSound("weapons/pistol/magin",CHAN_AUTO);
-		PSTF A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);
-		PSR1 MNOPQ 1 JM_WeaponReady(WRF_NOFIRE);
-		PSTG A 0 A_StartSound("weapons/pistol/magclick",CHAN_7);
-		PSTG A 0 JM_ReloadGun("PistolMagAmmo", "LowCalClip",12,1);
+		#### A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);
+		#### KKLLM 1 JM_WeaponReady(WRF_NOFIRE);
+		#### A 0 A_StartSound("weapons/pistol/magin",CHAN_AUTO);
+		#### A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);
+		#### MNOPQ 1 JM_WeaponReady(WRF_NOFIRE);
+		#### A 0 A_StartSound("weapons/pistol/magclick",CHAN_7);
+		#### A 0 JM_ReloadGun("PistolMagAmmo", "LowCalClip",12,1);
 	//	Goto ReloadLoop;
 	DoneReload:
-		PSTF A 0 A_JumpIfInventory("MO_PowerSpeed",1,1);
-		PSR1 RR 1 JM_WeaponReady(WRF_NOFIRE);
-		PSTF A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);
-		PSR1 SSTUVWX 1 JM_WeaponReady(WRF_NOFIRE);
+		#### A 0 A_JumpIfInventory("MO_PowerSpeed",1,1);
+		#### RR 1 JM_WeaponReady(WRF_NOFIRE);
+		#### A 0 A_JumpIfInventory("MO_PowerSpeed",1,2);
+		#### STUVWX 1 JM_WeaponReady(WRF_NOFIRE);
 		TNT1 A 0;
 		Goto ReadyToFire;
-	ReloadLoop:
-		PISG A 0;
-		PISG A 0 A_JumpIfInventory("PistolMagAmmo",12,"DoneReload");
-		TNT1 A 0 A_JumpIfInventory("LowCalClip",1,1);
-		Goto DoneReload;
-		PISG A 0 
-		{
-			A_TakeInventory("LowCalClip",1);
-			A_GiveInventory("PistolMagAmmo",1);
+	ActionSpecial:
+		PSTG A 1;
+		TNT1 A 0 {
+		if(CountInv("PistolSilencer") != 1)
+		{A_SetInventory("PistolSilencer",1);}
+		else
+		{A_SetInventory("PistolSilencer",0);}
 		}
-		Goto ReloadLoop;
-
+		Goto ReadyToFire;
 	Flash:
 		TNT1 A 7 Bright A_Light1;
 		Goto LightDone;
