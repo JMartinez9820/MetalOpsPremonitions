@@ -30,6 +30,12 @@ class JMWeapon : Weapon
 		}
 	}
 	
+	action void JM_SetWeaponSprite(string s)
+	{
+		 let psp = Invoker.Owner.player.FindPSprite(PSP_WEAPON);
+		 psp.sprite = GetSpriteIndex(s);
+	}
+	
 	action bool PressingFire(){return player.cmd.buttons & BT_ATTACK;}
     action bool PressingAltfire(){return player.cmd.buttons & BT_ALTATTACK;}
 	
@@ -58,20 +64,16 @@ class JMWeapon : Weapon
 		A_WeaponReady(flags);
 		if(JustPressed(BT_USER1))
 		{
+			if(CheckIfInReady())
 			return ResolveState("TossThrowable");
-		}
-		
-		if(JustPressed(BT_USER3))
-		{
-			return ResolveState("SwitchThrowables");
 		}
 		if(JustPressed(BT_USER4))
 		{
 			State ActionSpecial = invoker.owner.player.ReadyWeapon.FindState("ActionSpecial");
-			if(ActionSpecial != NULL)
+			if(ActionSpecial != NULL && CheckIfInReady())
 				return ResolveState('ActionSpecial');
-			else
-			return null;
+			else	
+			return null;		
 		}	
 		return null;
 	}
@@ -90,7 +92,8 @@ class JMWeapon : Weapon
 	{
 		if ( (InStateSequence(invoker.owner.player.GetPSprite(PSP_WEAPON).Curstate,invoker.ResolveState("Ready")) || 
 			  InStateSequence(invoker.owner.player.GetPSprite(PSP_WEAPON).Curstate,invoker.ResolveState("ReadyToFire"))||
-			  InStateSequence(invoker.owner.player.GetPSprite(PSP_WEAPON).Curstate,invoker.ResolveState("ReadyToFire2"))
+			  InStateSequence(invoker.owner.player.GetPSprite(PSP_WEAPON).Curstate,invoker.ResolveState("ReadyToFire2"))||
+			   InStateSequence(invoker.owner.player.GetPSprite(PSP_WEAPON).Curstate,invoker.ResolveState("ReadyLoop"))
 			 ) )
 		{		
 			return true;
@@ -115,8 +118,17 @@ class JMWeapon : Weapon
 	{
 		A_TakeInventory(ammotype, count, TIF_NOTAKEINFINITE);
 	}
-//	action bool JM_Recoil(float 
 
+	action void JM_GunRecoil(float gunPitch, float gunAngle)
+	{
+		CVar checkRecoil = CVar.FindCVar("mo_nogunrecoil");
+		bool noRecoil = checkRecoil.GetBool();
+		if(!noRecoil)
+		{
+			A_SetPitch(pitch+gunPitch, SPF_INTERPOLATE);
+			A_SetAngle(angle+gunAngle, SPF_INTERPOLATE);
+		}
+	}
 	
     Default
     {
@@ -344,32 +356,14 @@ class JMWeapon : Weapon
 			KCK2 JKLMN 1;
 			Goto ReallyReady;*/
 		
-		SwitchThrowables:
-			"####" "#" 1 {
-				if(CountInv("FragSelected") == 1)
-				{
-					A_SetInventory("FragSelected",0);
-					A_SetInventory("MolotovSelected",1);
-					A_Print("Molotov Cocktails Selected");
-					A_StartSound("MOLPKUP",3);
-				}
-				else
-				{
-					A_SetInventory("FragSelected",1);
-					A_SetInventory("MolotovSelected",0);
-					A_Print("Frag Grenades Selected");
-					A_StartSound("FragGrenade/Pickup",3);
-				}
-			}
-			Goto ReallyReady;
 		//From the PB Add-on	
 		TossThrowable:
 			"####" "#" 0;
 			"####" "#" 0 {
-				if(CountInv("FragSelected") == 1)
-				{return ResolveState("ThrowGrenade");}
-				else if(CountInv("MolotovSelected") == 1)
+				if(CountInv("ThrowableType") == 1)
 				{return ResolveState("ThrowMolotov");}
+				else
+				{return ResolveState("ThrowGrenade");}
 				return resolvestate(null);
 			}
 			Goto Ready;

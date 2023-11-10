@@ -1,0 +1,24 @@
+#library "MegaBersPrevWep"
+#include "Zcommon.acs"
+
+global str 1: PreviousWep[];
+
+script "SwitchBackToPrev" (void)
+{
+	int player = PlayerNumber();
+	if(PreviousWep[player] != ("Katana"))
+	{
+		SetWeapon(PreviousWep[player]);
+		Delay(1);
+	}
+	Terminate;
+}
+
+script "MegaBerserkSwitch" (void)//Switch to Katana
+{
+	int player = PlayerNumber();
+	PreviousWep[player] = GetWeapon();
+	SetWeapon("Katana");
+	delay(1);
+	terminate;
+}

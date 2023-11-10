@@ -148,7 +148,7 @@ Most sounds - Id Software, Raven Software (Doom 3, Quake 4)
 Plasma and BFG Explosions - Wirehead Studios (Generations Arena) and some frames from jDRP
 Explosions, Special Effects sprites and Casings - from Aeons of Death (the "Half-Life" explosions, and the "Lightning Ball" explosion)
 
-Mod logo placeholder created on www.canva.com, this will be subjected to change.
+Mod logo created on www.canva.com, this will be subjected to change.
 Soldier skull graphic from pngegg.com
 
 Other credits and license info:
@@ -178,3 +178,10 @@ scalliano - GLDefs code for spheres, Haste sphere
 
 Yoo-toob-FX - Rad suit off sound
 Pixabay - Rad suit hiss sound
+
+Mega Berserk:
+Sarge945 - Previous Weapon Used Button add-on used for Mega Berserk
+Fourth sound of Horror Voice Flashbacks used for Mega Berserk end: Sound Effect from Pixabay (https://pixabay.com/sound-effects/horror-voice-flashbacks-14469/)
+Bethesda - Doom 2016 berserk end, pickup sounds and doom 3 berserk loop
+People Can Fly - Mega Berserk loop layer
+New Blood Interactive - Mega Berserk loop ambience

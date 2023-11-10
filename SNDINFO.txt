@@ -3,6 +3,7 @@
 $random weapons/pistol/fire {PistolFire1 PistolFire2}
 PistolFire1 PISTFIR1
 PistolFire2 PISTFIR2
+weapons/pistol/silfire PISTSIL
 
 weapons/pistol/draw PISTDRW
 weapons/pistol/magin PISTIN
@@ -236,6 +237,7 @@ smallflames/loop FIRELOP1
 weapons/flamer/pickup FLMPKUP
 weapons/flamer/draw FLMSLCT
 weapons/flamer/startfire FLMSTRT
+weapons/flamer/flameon FLMSTRT2
 weapons/flamer/fireloop FLMLOOP
 weapons/flamer/end FLMCOOL
 Weapons/flamer/inwater FLNOFIR

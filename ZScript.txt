@@ -43,6 +43,7 @@ version "4.5.0"
 #include "ZScript/Effects/Particles.zs"
 
 #include "ZScript/StepEventHandler.zc"
+#include "ZScript/MO_Handler.zs"
 
 
 Class BaseVisualSFX : Actor// From Particle Fire Enhancer Mod (v0.8) by Z86
@@ -67,3 +68,15 @@ Class MO_ZSToken : Inventory
 		-INVENTORY.INVBAR;
 	}
 }
+
+Class ThrowableType : Inventory
+{
+	Default
+	{
+		Inventory.MaxAmount 3;
+		+INVENTORY.UNDROPPABLE;
+		-INVENTORY.INVBAR;
+	}
+}
+
+Class GoActionSpecial : MO_ZSToken{}

@@ -1,0 +1,176 @@
+
+Sprite "KCK1A0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK1", 337, 157
+}
+
+Sprite "KCK1B0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK1", 316, 146
+}
+
+Sprite "KCK1C0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK2", 288, 79
+}
+
+Sprite "KCK1D0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK2", 272, 66
+}
+
+Sprite "KCK1E0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK3", 225, 45
+}
+
+Sprite "KCK1F0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK3", 216, 41
+}
+
+Sprite "KCK1G0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK4", 188, 35
+}
+
+Sprite "KCK1H0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK4", 186, 36
+}
+
+Sprite "KCK2A0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK5", 199, 172
+}
+
+Sprite "KCK2B0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK5", 177, 158
+}
+
+Sprite "KCK2C0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK5", 161, 142
+}
+
+Sprite "KCK2D0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK8", 169, 92
+}
+
+Sprite "KCK2E0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK8", 156, 81
+}
+
+Sprite "KCK2F0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK6", 157, 72
+}
+
+Sprite "KCK2G0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -3, -19
+	Patch "KICK10", 145, 60
+}
+
+Sprite "KCK2H0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK10", 142, 61
+}
+
+Sprite "KCK2I0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -2, -19
+	Patch "KICK10", 138, 66
+}
+
+Sprite "KCK2J0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK12", 109, 79
+}
+
+Sprite "KCK2K0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK12", 92, 95
+}
+
+Sprite "KCK2L0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK13", 60, 112
+}
+
+Sprite "KCK2M0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK13", 35, 135
+}
+
+Sprite "KCK2N0", 500, 200
+{
+	XScale 1.300
+	YScale 1.300
+	Offset -4, -19
+	Patch "KICK13", 14, 166
+}

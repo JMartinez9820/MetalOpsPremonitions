@@ -2,9 +2,9 @@ class ShotgunSpawner : RandomSpawner replaces Shotgun
 {
 	Default
     {
-		DropItem "LeverShotgun", 255, 3;
+		DropItem "LeverShotgun", 255, 4;
 		DropItem "PumpShotgun", 255, 2;
-		DropItem "SSGRandomizer", 255,2;
+		DropItem "SSGRandomizer", 255,1;
 	}
 }
 

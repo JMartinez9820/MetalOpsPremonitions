@@ -1,0 +1,90 @@
+
+Sprite "W87PA0", 320, 200
+{
+	Offset 13, 28
+	Patch "W87PA", 0, 0
+}
+
+Sprite "W87PB0", 320, 200
+{
+	Offset 13, 28
+	Patch "W87PB", 0, 0
+}
+
+Sprite "W87PC0", 320, 200
+{
+	Offset 13, 28
+	Patch "W87PC", 0, 1
+}
+
+Sprite "W87PD0", 320, 200
+{
+	Offset 10, 28
+	Patch "W87PD", 0, 1
+}
+
+Sprite "W87PE0", 320, 200
+{
+	Offset 11, 28
+	Patch "W87PE", 50, 30
+}
+
+Sprite "W87PF0", 320, 200
+{
+	Offset 11, 28
+	Patch "W87PE", 39, 24
+}
+
+Sprite "W87PG0", 320, 200
+{
+	Offset 11, 28
+	Patch "W87PG", 26, 20
+}
+
+Sprite "W87PH0", 320, 200
+{
+	Offset 11, 28
+	Patch "W87PG", 21, 18
+}
+
+Sprite "W87PI0", 320, 200
+{
+	Offset 13, 28
+	Patch "W87PI", -18, 28
+}
+
+Sprite "W87PJ0", 320, 200
+{
+	Offset 14, 26
+	Patch "W87PJ", 4, 24
+}
+
+Sprite "W87PK0", 320, 200
+{
+	Offset 16, 27
+	Patch "W87PJ", 3, 27
+}
+
+Sprite "W87PL0", 320, 200
+{
+	Offset 19, 24
+	Patch "W87PJ", 2, 26
+}
+
+Sprite "W87PM0", 320, 200
+{
+	Offset 13, 28
+	Patch "W87PJ", 1, 27
+}
+
+Sprite "W87PN0", 320, 200
+{
+	Offset 11, 28
+	Patch "W87PJ", 6, 23
+}
+
+Sprite "W87PO0", 320, 200
+{
+	Offset 13, 28
+	Patch "W87PO", 0, 0
+}

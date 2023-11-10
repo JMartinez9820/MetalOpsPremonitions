@@ -43,3 +43,10 @@ user bool mo_bulletsparksound = true;
 server bool mo_nogunrecoil = false;
 user int mo_nvstyle = 1;
 user bool mo_nvscanlines = true;
+
+/*
+//Custom XHairs
+user bool mo_customxhairs = false;
+user int pistolxhair = 18;
+user int SMGXHair =
+*/

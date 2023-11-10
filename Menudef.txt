@@ -21,6 +21,8 @@ OptionMenu "Modsettings"
 	StaticText ""
 	Option "$MO_NVISOPTN", "mo_nvstyle", "MO_NightVisionColors"
 	StaticText ""
+	Option "NVG Shader scanlines", "mo_nvscanlines", "OnOff"
+	StaticText ""
 }
 
 OptionValue "MO_NightVisionColors"

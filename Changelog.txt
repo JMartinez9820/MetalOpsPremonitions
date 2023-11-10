@@ -40,3 +40,17 @@ It's inspired by Call of Duty 3, while the smoke trail that spawns from the gren
 - New Powerups, Haste and Quad Damage. Haste will make your melee attacks and reload animations faster, and shotgun pumping/levering actions faster. Quad damage increases your damage by four times, like in Quake.
 - Powerup sphere sprites updated, sprites by Benjamin Zuriel, from unused powerup sprites that were going to be made for Project Brutality before being replaced.
 - Armor and Health Bonuses have variants now, either giving two or three armor.
+
+
+Version 3 changes:
+- SMG burst fire is now an alt fire and shoots five bullets.
+- Pistol alt fire is 3 shot burst fire
+- Night vision now has a shader based on Hideous Destructor's Night vision shader, mod by Matt.
+- Pump Shotgun is now a 20 gauge shotgun, shoots 20 pellets but does less damage than the lever action.
+- Bullet sparks are now enhanced, based on Cacodemon's Enhanced Puffs for BDv21 and Hellrider by Moa Dixon
+- New crosshairs added.
+- Soulsphere sound updated.
+- Fixed cryothrower translation
+- Fixed monster conflicts, such as with Legion of Bones.
+- Fixed sprite conflicts
+- Mini nuke mode cooldown increase, will likely scrap it.

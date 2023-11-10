@@ -1,3 +1,0 @@
-//This file is made for the purpose of fixing the PLAYPAL issue with Legion of Bones monster mod,
-//although this might get used for other translations in the future.
-CryoBlue = "0:255=%[0,0,0]:[0.6,0.8,1]"

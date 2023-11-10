@@ -6,10 +6,12 @@ SMG:
 
 Unmaker:
 - Brightmaps *
-- 
+- alt fire
+- special mode (blood acid?)
 
 Rocket Launcher:
-- Mini nuke mode (in progress, effects done (for now, needs tweaks),  *
+- Mini nuke mode (in progress, effects done (for now, needs tweaks),  * -Scrapped
+- Replace Mini Nukes with Laser Guiding/Homing
 
 - Making the Heavy Combat Rifle
 
@@ -30,4 +32,7 @@ Misc:
 - Shotgun casings and Pandemonia *
 
 - Fix Partial Invisibility blink
-- Add Quake style power down for Suit
+- Add Quake style power down for Suit *
+- Mega Berserk
+- Make Plasma Grenades
+- Make C4 charges, also have it as a weapon if player wants to throw more

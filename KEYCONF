@@ -9,8 +9,11 @@ defaultbind G +user1
 addmenukey "Kick Attack" +user2
 defaultbind Q +user2
 
-addmenukey "Switch Throwables" +user3
-defaultbind N +user3
+//In the future, this will be changed.
+addmenukey "Switch Throwables" PrevThrow
+alias PrevThrow "netevent PrevThrowable"
+defaultbind N
 
-addmenukey "Special Action" +user4
+addmenukey "Weapon Action Special" +user4
 defaultbind X +user4
+

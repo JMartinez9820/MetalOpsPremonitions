@@ -7,5 +7,5 @@
 gameinfo
 {
 	AddEventHandlers = "NCH_Handler"
-	addEventHandlers = "StepEventHandler"
+	addEventHandlers = "StepEventHandler", "MOps_KeysHandler"
 }

@@ -17,6 +17,64 @@ Class GunSmoke : BaseVisualSFX
   }
 }
 
+//Thanks sTULKER aka dimonass!
+Class SparkSpray : Actor
+{
+	Default
+	{
+    +NOGRAVITY
+    +NOBLOCKMAP
+    -ALLOWPARTICLES
+    +RANDOMIZE
+    +NOEXTREMEDEATH
+	+ROLLSPRITE
+    Mass 0;
+    Alpha 1.0;
+    Speed 0;
+    Scale 0.4;
+	}
+    States
+    {
+    Spawn:
+       S9RK A 0 NoDelay A_SetRoll(random(-45, 45));
+       S9RK A 1 bright;
+       S9RK B 2 bright;
+       S9RK C 1 bright;
+	   Stop;
+    }
+}
+
+
+class GunsmokeSpray : Actor
+{
+	Default
+	{
+    +NOGRAVITY;
+    +NOBLOCKMAP;
+    -ALLOWPARTICLES;
+    +RANDOMIZE;
+    +NOEXTREMEDEATH;
+    +ROLLSPRITE;
+    Mass 0;
+    Speed 0;
+	Scale 0.75;
+    RenderStyle 'translucent';
+    Alpha 0.8;
+	}
+    States
+    {
+    Spawn:
+       GNSK A 0 NoDelay A_SetRoll(random(0, 359));
+       GNSK A 1;
+       GNSK A 2;
+       GNSK BCDE 2 A_FadeOut(0.2);
+	   Stop;
+    }
+}
+
+class LittleGunsmokeSpray : GunsmokeSpray
+{Default{Scale 0.45;}}
+
 Class LittleGunSmoke : GunSmoke
 {
   Default
@@ -94,7 +152,7 @@ class PlasmaCoolSmoke3 : PlasmaCoolSmoke1
 }
 Class BulletImpactSmoke : GunSmoke
 {
-		Default{Scale 0.12;}
+		Default{Scale 0.17;}
 }
 
 Class BulletSmoke : GunSmoke

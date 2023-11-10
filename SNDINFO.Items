@@ -39,6 +39,11 @@ misc/cell CELLPICK
 misc/cellpak CELL_PAK
 
 misc/zerkpak BSERKPCK
+megazerk/ambienceloop "sounds/items/powerups/MegaBers_LoopAmb.ogg"
+megazerk/looplayer "sounds/items/powerups/MegaBers_LoopLayer.ogg"
+megazerk/screaming "sounds/items/powerups/MegaBers_LoopScreams.ogg"
+megazerk/warn BSERKWRN
+megazerk/end BSERKEND
 
 powerupwearoff wearoff
 powerup/haste "sounds/items/powerups/Haste_Pickup.ogg"

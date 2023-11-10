@@ -16,7 +16,11 @@ class Katana: JMWeapon replaces Fist
 	  {
 	  Ready:
 	  ReadyToFire:
-		KTAG A 1 JM_WeaponReady();
+		KTAG A 1 JM_WeaponReady();/* {
+		if(FindInventory("MO_PowerMegaBers"))
+		{return JM_WeaponReady(WRF_DISABLESWITCH);}
+		return JM_WeaponReady();
+		}*/
 		Loop;
 	  Deselect:
 		TNT1 A 0 A_STARTSOUND("weapons/katana/sheathe", CHAN_AUTO, CHANF_DEFAULT,0.7);

@@ -2,7 +2,7 @@
 
 Class SMGBurstMode : MO_ZSToken{}
 
-Class SMGBurstCounter : Inventory {Default{Inventory.MaxAmount 3;}}
+Class SMGBurstCounter : Inventory {Default{Inventory.MaxAmount 5;}}
 
 Class MO_SubMachineGun : JMWeapon
 {
@@ -56,7 +56,6 @@ Class MO_SubMachineGun : JMWeapon
 			Goto ClearAudioAndResetOverlays;
         Fire:
 			TNT1 A 0 JM_CheckMag("SMGAmmo");
-			TNT1 A 0 A_JumpIfInventory("SMGBurstMode",1,"FireBurst");
             SM5F A 1 BRIGHT {
                 A_FireBullets(5.6, 0, 1, 10, "UpdatedBulletPuff",FBF_NORANDOM, 0,"MO_BulletTracer",0);
                 JM_UseAmmo("SMGAmmo", 1);
@@ -78,19 +77,41 @@ Class MO_SubMachineGun : JMWeapon
 				A_SpawnItemEx("PistolCasing",29, 4, 38, random(-2,2), random(3,5), random(3,5));
 			}
             SM5F C 1 JM_WeaponReady(WRF_NOFIRE);
-			AR1F A 0 
-			{
-				if(CheckInventory("SMGBurstMode",1))
-				{A_GiveInventory("SMGBurstCounter",1);}
-			}
-			AR1F A 0 A_JumpIfInventory("SMGBurstCounter",3,"BurstFireFinished");
             AR1F A 0 A_JumpIf(PressingWhichInput(BT_ATTACK), "Fire");
+			TNT1 A 0 JM_CheckMag("SMGAmmo");
+            Goto ReadyToFire;
+	
+		AltFire:
+			TNT1 A 0 JM_CheckMag("SMGAmmo");
+            SM5F A 1 BRIGHT {
+                A_FireBullets(5.6, 0, 1, 10, "UpdatedBulletPuff",FBF_NORANDOM, 0,"MO_BulletTracer",0);
+                JM_UseAmmo("SMGAmmo", 1);
+                A_StartSound("weapons/smg/fire", 0);
+				A_SpawnItemEx("GunSmoke",15,0,34,2,0,0);
+				JM_CheckForQuadDamage();
+            }
+			PSTG A 0 
+			{
+				if(!GetCvar("mo_nogunrecoil"))
+				{
+				A_SetPitch(pitch-1.5,SPF_Interpolate);
+				A_SetAngle(angle+.09,SPF_INTERPOLATE);
+				}
+			}
+            SM5F B 1 BRIGHT 
+			{
+				JM_WeaponReady(WRF_NOFIRE);
+				A_SpawnItemEx("PistolCasing",29, 4, 38, random(-2,2), random(3,5), random(3,5));
+			}
+			AR1F A 0 A_GiveInventory("SMGBurstCounter",1);
+			AR1F A 0 A_JumpIfInventory("SMGBurstCounter",5,"BurstFireFinished");
+            AR1F A 0 A_JumpIf(PressingAltFire(), "AltFire");
 			TNT1 A 0 JM_CheckMag("SMGAmmo");
             Goto ReadyToFire;
 		
 		BurstFireFinished:
 			SM5G A 1 JM_WeaponReady(WRF_NoFire);
-			AR1F A 0 A_JumpIf(!PressingFire(), "ReadyToFire");
+			AR1F A 0 A_JumpIf(!PressingAltFire(), "ReadyToFire");
 			Loop;
 			
         Deselect:
@@ -142,8 +163,9 @@ Class MO_SubMachineGun : JMWeapon
             SMR1 DCBA 1 JM_WeaponReady(WRF_NOFIRE);
 			SM5G A 1;
             Goto ReadyToFire;
-		
-		ActionSpecial:
+
+//Burst mode is a now the alt fire. This will likely be replaced with something else.		
+	/*	ActionSpecial:
 			"####" A 0 
 			{
 				if(CountInv("SMGBurstMode") == 1)
@@ -161,7 +183,7 @@ Class MO_SubMachineGun : JMWeapon
 			TNT1 A 0 A_StartSound("weapons/smg/modeswitch",0);
 			SK34 GGG 1;
 			SK34 FEDCBA 1 JM_WeaponReady();
-			Goto ReadyToFire;
+			Goto ReadyToFire;*/
 
 	//This will be added in a future update.
 /*		Chamber:

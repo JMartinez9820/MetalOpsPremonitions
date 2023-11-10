@@ -22,6 +22,7 @@ Class MO_Soulsphere : CustomInventory replaces SoulSphere
 			TNT1 A 1 
 			{
 				GiveBody(100,200);
+				A_SetBlend("Blue",0.8, 20);
 			}
 			Stop;
 	}

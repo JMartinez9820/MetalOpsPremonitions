@@ -15,7 +15,7 @@ class MiniNukeCooldown : Powerup
 			Owner.A_Print("Mini nuke ready!");
         }
     }
-	Default{Powerup.Duration 525;}
+	Default{Powerup.Duration 700;}
 }
 
 class MiniNukeCoolerGiver : PowerupGiver

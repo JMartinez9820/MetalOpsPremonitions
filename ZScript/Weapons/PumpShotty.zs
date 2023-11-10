@@ -55,7 +55,7 @@ class PumpShotgun : JMWeapon
             PSTG A 0 JM_CheckMag("PumpShotgunAmmo", "Reload");
             PSGF A 1 
             {
-                A_FireBullets (random(4, 8), frandom(4,9), 20, 6, "ShotgunShellPuff", FBF_NORANDOM,0,"MO_BulletTracer",0);
+                A_FireBullets (random(3, 6), frandom(4,9), 20, 6, "ShotgunPuff20GA", FBF_NORANDOM,0,"MO_BulletTracer",0);
                 A_StartSound ("weapons/pumpshot/fire", CHAN_WEAPON);
                 A_TakeInventory("PumpShotgunAmmo",1);
 				A_SpawnItemEx("ShotgunSmoke",15,0,34,2,0,0);
@@ -106,7 +106,7 @@ class PumpShotgun : JMWeapon
 			TNT1 A 0 A_StartSound("weapons/pumpshot/altfire",CHAN_7);
 			PSGF A 1 
             {
-                 A_FireBullets (random(5, 8), frandom(5,14), 40, 6, "ShotgunShellPuff", FBF_NORANDOM,0,"MO_BulletTracer",0);
+                 A_FireBullets (random(4, 8), frandom(3,15), 40, 6, "ShotgunPuff20GA", FBF_NORANDOM,0,"MO_BulletTracer",0);
                 A_TakeInventory("PumpShotgunAmmo",2);
 				A_SpawnItemEx("ShotgunSmoke",15,0,34,2,0,0);
 				JM_CheckForQuadDamage();
